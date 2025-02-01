@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sateesh creation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    img{
+    width: 65%;
+    border-radius: 50%;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+}
+  </style>
+</head>
+<body>
+
+<nav class="navbar mb-3 navbar-light bg-danger">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#" class=".text-warning">Official Website</a>
+    </div>
+<ul class="nav navbar-nav">
+ <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
+ <li class="dropdown"><a data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-education"></span>  Education</a>
+ 
+        <ul class="dropdown-menu">
+          <li><a href="#">Fire Style</a></li>
+          <li><a href="#">Water Style</a></li>
+          <li><a href="#">Wind Style</a></li>
+ <li><a href="#">Earth Style</a></li>
+ <li><a href="#">Taijutsu </a></li>
+ <li><a href="#">Medical Ninja </a></li>
+        </ul>
+      </li>
+  <li class="active"><a href="#"><span class="glyphicon glyphicon-info-sign"></span>  About</a></li>
+      <li class="dropdown"><a data-toggle="dropdown" href="#">Cerrier <span class="caret"></span></a>
+ 
+        <ul class="dropdown-menu">
+          <li><a href="#">Hokage</a></li>
+          <li><a href="#">Chunen</a></li>
+          <li><a href="#">Genen</a></li>
+        </ul>
+      </li>
+</ul>
+ <ul class="nav navbar-nav navbar-right">
+  <li><a class="active" data-toggle="collapse" href="#SATTI"><span class="glyphicon glyphicon-user"></span>  Sign Up</a></li>
+     <li ><a class="active" data-toggle="collapse" href="#ben"><span class="glyphicon glyphicon-log-in"></span>  Login</a></li>
+</ul>
+</div>
+</nav>
+<div class="collapse" id="SATTI">
+      <div class="card card-body">
+        <style>
+    .error {
+        color: red;
+    }
+</style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>Registration Form</h2>
+    <form id="registrationForm" onsubmit="return Sateesh()">
+        <div class="form-group">
+            <label >Name:</label>
+            <input type="text" class="form-control" id="name" name="name">
+            <span id="nameError" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" name="password">
+            <span id="passwordError" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email">
+            <span id="emailError" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label>Gender:</label><br>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="male" name="gender" value="male">
+                <label class="form-check-label" for="male">MALE</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="female" name="gender" value="female">
+                <label class="form-check-label" for="female">Female</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="other" name="gender" value="other">
+                <label class="form-check-label" for="other">Other</label>
+            </div>
+            <span id="genderError" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label>Hobbies:</label><br>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="reading" name="hobbies" value="reading">
+                <label class="form-check-label" for="reading">Reading</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="gaming" name="hobbies" value="gaming">
+                <label class="form-check-label" for="gaming">Gaming</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="traveling" name="hobbies" value="traveling">
+                <label class="form-check-label" for="traveling">Traveling</label>
+            </div>
+            <span id="hobbiesError" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label for="country">Country:</label>
+            <select class="form-control" id="country" name="country">
+                <option value="">Select Country</option>
+                <option value="usa">USA</option>
+                <option value="uk">UK</option>
+                <option value="canada">Canada</option>
+            </select>
+            <span id="countryError" class="error"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+function Sateesh() {
+    var isValid = true;
+    var jname = document.getElementById('name').value.trim();
+    var jpassword = document.getElementById('password').value.trim();
+    var jemail = document.getElementById('email').value.trim();
+    var jgender = document.querySelector('input[name="gender"]:checked');
+    var jhobbies = document.querySelectorAll('input[name="hobbies"]:checked');
+    var jcountry = document.getElementById('country').value;
+
+    // Reset errors
+    var errorElements = document.querySelectorAll('.error');
+    errorElements.forEach(function(element) {
+        element.innerHTML = '';
+    });
+
+    // Validate name
+    if (jname === '') {
+        document.getElementById('nameError').innerHTML = 'Name is mandetory';
+        isValid = false;
+    }
+
+    // Validate password
+    if (jpassword === '') {
+        document.getElementById('passwordError').innerHTML = 'Password is required';
+        isValid = false;
+    }
+
+    // Validate email
+    if (jemail === '') {
+        document.getElementById('emailError').innerHTML = 'Email is required';
+        isValid = false;
+    } else if (!isValidEmail(email)) {
+        document.getElementById('emailError').innerHTML = 'Invalid email format';
+        isValid = false;
+    }
+
+    // Validate gender
+    if (!jgender) {
+        document.getElementById('genderError').innerHTML = 'Gender is required';
+        isValid = false;
+    }
+
+    // Validate hobbies
+    if (jhobbies.length === 0) {
+        document.getElementById('hobbiesError').innerHTML = 'Select at least one hobby';
+        isValid = false;
+    }
+
+    // Validate country
+    if (jcountry === '') {
+        document.getElementById('countryError').innerHTML = 'Please select a country';
+        isValid = false;
+    }
+
+    return isValid;
+}
+
+function isValidEmail(email) {
+    // A basic email validation
+    var emailRegex = /\S+@\S+\.\S+/;
+    return emailRegex.test(jemail);
+}
+</script>
+      </div>
+    </div class="container">
+<div class="collapse " id="ben">
+      <div class="card card-body">
+        <style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+  }
+ 
+  .containers {
+    max-width: 400px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="email"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+height:50%;
+  }
+
+  input[type="submit"] {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+
+  .forgot-password {
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  .forgot-password a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    text-decoration: underline;
+  }
+</style>
+<div class="container">
+  <h2>Login</h2>
+  <form action="#" method="post">
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <input type="submit" value="Login">
+  </form>
+  <div class="forgot-password">
+    <a href="#">Forgot Password?</a>
+  </div>
+</div>
+
+<div class="container">
+  <h2>Registration</h2>
+  <form action="#" method="post">
+    <input type="text" name="fullname" placeholder="Full Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <input type="submit" value="Register">
+  </form>
+</div>
+      </div>
+    </div>
+</div>
+<div class="jumbotron">
+<div class="container">
+<h1 class="display-4">Welcome to Anime world</h1>
+<p class="text-danger">Naruto is the best anime that i have suggesting you to watch for best experiance.<p>
+      <p class="lead">Naruto is a best example for never giveup until you reach your goal.</p>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    </div>
+
+  </div>
+  <div
+  class="bg-image"
+  style="
+    background-image: url(https://mcdn.wallpapersafari.com/medium/38/63/xo09G4.jpg);
+    height:900px;
+background-size:cover;
+background-position:center;
+  "></div>
+<div  class="container mt-5">
+  <div class="row">
+    <div class="col-sm-3">
+      <h3>Naruto</h3>
+      <p>True Friend</p>
+    </div>
+    <div class="col-sm-3">
+      <h3>Sasuke</h3>
+     <p>Best raival</p>
+    </div>
+    <div class="col-sm-3">
+      <h3>sakura</h3>        
+      <p>Team member</p>
+    </div>
+<div class="col-sm-3">
+      <h3>Kakashi Hatake</h3>        
+      <p>The coolest</p>
+    </div>
+  </div>
+</div>
+<div class="container mt-5">
+  <div class="vertical">
+    <div class="col-sm-3">
+      <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXOGIDxwHuV4XoOjU8vHulPewUMFEG59xG5w&s" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Naruto</h5>
+    <p class="card-text">The child of pravase who born in hidden leaf village his goal to become hokage of hiddenleaf village.</p>
+    <a href="https://hianime.to/watch/naruto-677?ep=12352" class="btn btn-primary">Welcome to village</a>
+  </div>
+</div>
+</div>
+    <div class="col-sm-3">
+      <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCLPfjyvhJfJ51lJ_FBd2WiBSjGIqAIeS_bg&s" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Sasuke</h5>
+    <p class="card-text">The last uchiha in whole world.</p>
+    <a href="https://hianime.to/watch/naruto-677?ep=12352" class="btn btn-primary">Welcome to village</a>
+  </div>
+</div>
+</div>
+    <div class="col-sm-3">
+      <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVm9yx-RjJJ_8zMFbu_9toiA-IXtNaMvBumQ&s" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Sakura</h5>
+    <p class="card-text">The best medical ninja .</p>
+    <a href="https://hianime.to/watch/naruto-677?ep=12352" class="btn btn-primary">Welcome to village</a>
+  </div>
+</div>
+</div>
+    <div class="col-sm-3">
+      <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4aSy8GSR9GDQIR01YnEXDX5FWUQ5mLOwqLA&s" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Kakashi Hatake</h5>
+    <p class="card-text">The copy ninja kakashi Hatake the sharingen user.</p>
+    <a href="https://hianime.to/watch/naruto-677?ep=12352" class="btn btn-primary">Welcome to village</a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+<a class="anchor" id="portfolio-link"></a>
+    <div id="portfolio" class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h1>Hokages</h1>
+          <hr />
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="thumbnail">
+                  <a href="https://naruto.fandom.com/wiki/Tsunade" target="_blank">
+                    <div class="thumbnail-hover text-center">
+                      <i class="fa fa-eye fa-4x"></i>
+                    </div>
+                    <img class="img-responsive" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-Te_79ZKJ8QE7Wb-8XPC3KR-UaXLbe7A5qQ&s" alt="bruce-lee-tribute-page">
+                  </a>
+                  <div class="caption">
+                    <h3>Hokage</h3>
+                    <p>Tsunade is the HOkage of Konohagakure Village.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="thumbnail">
+                  <a href="https://naruto.fandom.com/wiki/Mei_Terum%C4%AB" target="_blank">
+                    <div class="thumbnail-hover text-center">
+                      <i class="fa fa-eye fa-4x"></i>
+                    </div>
+                    <img class="img-responsive" src="data:image/jpeg;base64,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">
+                  </a>
+                  <div class="caption">
+                    <h3>Mizukage</h3>
+                    <p>Mei Terumi is the  Mizukage of Kirigakure Village.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="thumbnail">
+                  <a href="https://naruto.fandom.com/wiki/Gaara" target="_blank">
+                    <div class="thumbnail-hover text-center">
+                      <i class="fa fa-eye fa-4x"></i>
+                    </div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWKUMrNAbot4WQufX9HXOZLUg0i5wHXtAWMw&s">
+                  </a>
+                  <div class="caption">
+                    <h3>Kazekage</h3>
+                    <p>Gara is the kazekage of  Tsunagakure Village.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="thumbnail">
+                  <a href="https://naruto.fandom.com/wiki/A_(Fourth_Raikage)" target="_blank">
+                    <div class="thumbnail-hover text-center">
+                      <i class="fa fa-eye fa-4x"></i>
+                    </div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxknhngNy4qWewqUWyvwwIcebQnkKsWMzQUg&s">
+                  </a>
+                  <div class="caption">
+                    <h3>Raikage</h3>
+                    <p>AY is the Raikage of Kumogakure Village. </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="thumbnail">
+                  <a href="https://naruto.fandom.com/wiki/%C5%8Cnoki" target="_blank">
+                    <div class="thumbnail-hover text-center">
+                      <i class="fa fa-eye fa-4x"></i>
+                    </div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxFA14Xyo8mPjo3kmfeTOWiptZQKQFXLBvIw&s">
+                  </a>
+                  <div class="caption">
+                    <h3>Tsuchikage</h3>
+                    <p>Onoki is the Tsuchikage of Iwagakure Village. </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="thumbnail">
+                  <a href="https://naruto.fandom.com/wiki/Madara_Uchiha" target="_blank">
+                    <div class="thumbnail-hover text-center">
+                      <i class="fa fa-eye fa-4x"></i>
+                    </div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmLDFHus9GIHT1EmNFmQXg6vEYyg2m1qg0_g&s">
+                  </a>
+                  <div class="caption">
+                    <h3>Madara</h3>
+                    <p>The gost of Uchiha clan Madara Uchiha.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scatter Plot with Chart.js</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+      </div>
+      <div class="col-md-4">
+        <div class="center">
+          <h2>The Fourth Great Ninja Wars</h2>
+          <p>In the fourth Great Ninja Wars total Five kages are samand and all five nations are combined and formed as a one nation and particepated in the ninja war total 50000 Ninjas with 9 masive chakra beasts are agains standed for save the world with one dangers charecter he is also called as the Gost of Uchiha only his name is enough for shiwer there enemy's His name is "Madara_Uchiha":)</p>
+          <a href="https://youtu.be/_ge5lO3DyPU?si=9d9P70ZL8b5pDkQk" class="btn btn-primary w-5 text-right">Madara Uchiha</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+  <script>
+    const xyValues = [
+      {x:1130, y:70},
+      {x:1140, y:80},
+      {x:1150, y:85},
+      {x:1160, y:97},
+      {x:1170, y:92},
+      {x:1180, y:91},
+      {x:1190, y:100},
+      {x:1200, y:110},
+      {x:1210, y:145},
+      {x:1220, y:140},
+      {x:1230, y:151}
+    ];
+
+    new Chart("myChart", {
+      type: "scatter",
+      data: {
+        datasets: [{
+          label: 'During Fourth Great Ninja Wars',
+          pointRadius: 4,
+          pointBackgroundColor: "rgba(0,0,255,1)",
+          data: xyValues
+        }]
+      },
+      options: {
+        scales: {
+          xAxes: [{
+            type: 'linear',
+            position: 'bottom'
+          }],
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Power levels of Hokages '
+            },
+gridLines: {
+              color: 'rgba(255, 0, 0, 0.5)' // Change the color of the y-axis grid lines
+            }
+          }]
+        }
+      }
+    });
+  </script>
+</body>
+
+
+
